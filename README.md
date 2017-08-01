@@ -33,12 +33,26 @@ Once you deploy this, your data will flow as follows:
 ## Usage
 
 1. Check out this repo.
+```
+$ git clone https://github.com/Worklytics/flume-connector.git
+$ cd flume-connector
+```
 
-2. Unpack that Flume tar.
+2. Unpack the Flume distribution we've included. This has the http-sink plugin included.
 
-3. Deploy it (probably /usr/local)
+```
+$ tar -zxvf flume.tar.gz
+```
 
-4. Configure it.
+3. Choose a sample configuration (`conf-examples/`) and edit as you see fit.
+
+4. Run it
+
+```
+$ ./flume/bin/flume-ng agent -n agent -c conf -f conf-examples/local-log-file-conf.properties 
+```
+
+
 
 ## Building from Scratch
 
