@@ -5,6 +5,7 @@ There are several benefits of using Flume to send your data to Worklytics:
   * support ingestion from tools that lack sufficient webhook support or REST APIs
   * use Flume filters to exclude or sanitize data according to your particular data security needs
   * Flume is quite mature and well-understood by many developers
+  * Flume is fairly extensible. It has a plugin system and is written in Java. 
 
 The drawback is that Flume is an extra component that you must deploy and operate somewhere in your infrastructure.
 
@@ -16,7 +17,7 @@ Worklytics makes no warranty about any of the software or example configurations
 
 This repo includes two things:
   * a built Flume distribution in a tar bundle with [HTTP Sink support](https://github.com/hmrc/flume-http-sink) added
-  * example Flume configuration files for collecting data for various sources. 
+  * example Flume configuration files for various deployment scenarios.
 
 
 Once you deploy this, your data will flow as follows:
@@ -94,13 +95,8 @@ $ cd ~
 $ tar -cvzf flume.tar.gz {flume_home}
 ```
 
-### Use something other than Flume
+## Use something other than Flume
 
 Flume is actually rather old and was specifically designed to collect data for Hadoop.  There are lots of other 
 data/log collection solutions out there, such as [Apache Kafka](https://kafka.apache.org/), 
 [FluentD](https://www.fluentd.org/), etc - all of which should support fairly similar use-cases. 
-
-
-## Resources
-
-This was largely developed from the (rather old) Flume documentations. 
