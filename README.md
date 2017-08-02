@@ -35,14 +35,14 @@ Once you deploy this, your data will flow as follows:
 
 1. Check out this repo.
 ```bash
-$ git clone https://github.com/Worklytics/flume-connector.git
-$ cd flume-connector
+git clone https://github.com/Worklytics/flume-connector.git
+cd flume-connector
 ```
 
 2. Unpack the Flume distribution we've included. This has the http-sink plugin included.
 
 ```bash
-$ tar -zxvf flume.tar.gz
+tar -zxvf flume.tar.gz
 ```
 
 3. Choose a sample configuration (`conf-examples/`) and edit as you see fit.
@@ -50,7 +50,7 @@ $ tar -zxvf flume.tar.gz
 4. Run it
 
 ```bash
-$ ./flume/bin/flume-ng agent -n agent -c conf -f conf-examples/local-log-file-conf.properties 
+./flume/bin/flume-ng agent -n agent -c conf -f conf-examples/local-log-file-conf.properties 
 ```
 
 
@@ -65,34 +65,34 @@ High-level build steps:
 
 Low-level build steps:
 ```bash
-$ git clone https://git-wip-us.apache.org/repos/asf/flume.git flume
-$ cd flume
+git clone https://git-wip-us.apache.org/repos/asf/flume.git flume
+cd flume
 
 # checkout latest stable Flume branch (1.7.x as of 31 July 2017; trunk is 1.8.x)
-$ git checkout flume-1.7 
+git checkout flume-1.7 
 
 # Flume docs recommend this to avoid memory issues in build process
-$ export MAVEN_OPTS="-Xms512m -Xmx1024m"
-$ mvn install -DskipTests=true
+export MAVEN_OPTS="-Xms512m -Xmx1024m"
+mvn install -DskipTests=true
 
 # unpack built tar
-$ cp flume-ng-dist/target/apache-flume-1.7.0-bin.tar.gz .
-$ tar -zxvf apache-flume-1.7.0-bin.tar.gz
-$ cd apache-flume-1.7.0-bin
+cp flume-ng-dist/target/apache-flume-1.7.0-bin.tar.gz .
+tar -zxvf apache-flume-1.7.0-bin.tar.gz
+cd apache-flume-1.7.0-bin
 
 # build flume-http-sink
-$ git clone https://github.com/hmrc/flume-http-sink.git
-$ cd flume-http-sink
+git clone https://github.com/hmrc/flume-http-sink.git
+cd flume-http-sink
 
 # package it with sbt (Scala Build Tool); on OS X, available with Homebrew: brew install sbt
-$ sbt clean package
+sbt clean package
 
 # copy the JAR into flume
-$ cp target/flume-http-sink-{version}.jar {flume_home}/lib/flume-http-sink-{version}.jar
+cp target/flume-http-sink-{version}.jar {flume_home}/lib/flume-http-sink-{version}.jar
 
 # bundle it
-$ cd ~
-$ tar -cvzf flume.tar.gz {flume_home}
+cd ~
+tar -cvzf flume.tar.gz {flume_home}
 ```
 
 ## Use something other than Flume
