@@ -34,14 +34,14 @@ Once you deploy this, your data will flow as follows:
 ## Usage
 
 1. Check out this repo.
-```
+```bash
 $ git clone https://github.com/Worklytics/flume-connector.git
 $ cd flume-connector
 ```
 
 2. Unpack the Flume distribution we've included. This has the http-sink plugin included.
 
-```
+```bash
 $ tar -zxvf flume.tar.gz
 ```
 
@@ -49,7 +49,7 @@ $ tar -zxvf flume.tar.gz
 
 4. Run it
 
-```
+```bash
 $ ./flume/bin/flume-ng agent -n agent -c conf -f conf-examples/local-log-file-conf.properties 
 ```
 
@@ -64,7 +64,7 @@ High-level build steps:
   4. copied the JAR to the `lib` directory of the Flume we built in [1] [details](https://github.com/hmrc/flume-http-sink#installation)
 
 Low-level build steps:
-```
+```bash
 $ git clone https://git-wip-us.apache.org/repos/asf/flume.git flume
 $ cd flume
 
